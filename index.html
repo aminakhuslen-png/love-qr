@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Зөвхөн Бямбаа-д зориулсан ❤️</title>
+    <title>Зөвхөн чамд зориулав ❤️</title>
     <style>
         * {
             box-sizing: border-box;
@@ -35,7 +35,7 @@
         }
         p {
             color: #444;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.5;
             margin-bottom: 10px;
         }
@@ -92,6 +92,14 @@
             margin-top: 15px; 
             width: 100%;
         }
+        .lyrics-box {
+            background: #fff0f3;
+            padding: 10px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #c9184a;
+            margin-bottom: 12px;
+        }
     </style>
 </head>
 <body>
@@ -108,32 +116,23 @@
 
         <!-- Захидлын хэсэг -->
         <div id="letterSection" class="hidden">
-            <h2>❤️Хайрдаа зориулав❤️</h2>
+            <h2>❤️ Зөвхөн чамд зориулав ❤️</h2>
             <div class="letter-content">
+                <div class="lyrics-box">
+                    "Яг энэ мөчөөс чи өрхийг минь тэргүүлж<br>
+                    Ямар их итгэл ерөөгдөнө вэ<br>
+                    Хөтлөх гар чинь зүрхийг минь догдлуулж<br>
+                    Аз жаргалын минь алтан мөч..."
+                </div>
                 <p>Миний амьдралын хамгийн үнэ цэнтэй хүн минь,</p>
-                <p>Заримдаа би үгээр бүхнийг илэрхийлж чадахгүй ч чамтай өнгөрүүлсэн хором мөч бүхэн минь миний хувьд ямар үнэ цэнтэй гээч Чиний харц шингэсэн өглөө бүхэн
-Чимээгүйхэн инээмсэглэх шалтгаан болдог
-Цаг хугацааны урсгалд ганхашгүй орших
-Цэцэгхэн зүрхний минь нандин амьдрал минь.
-
-Алс хол байсан ч хажууд мэт санагдаж
-Амьсгал бүхэндээ чамайг л үгүйлэн дурсана
-Алдаж оносон амьдралын нугачаанд
-Аз жаргалыг хамтдаа бүтээх хань минь.
-
-Үгээр хэлж үл бардам тэрхүү их хайраар
-Үүрд мөнхөд чамайгаа нандигнан хайрлах болно
-Үүлгүй цэлмэг өдрийн нарнаас ч илүү дулаахан
-Үнэнч сэтгэл минь зөвхөн чамдаа зориулагдсан юм шүү..</p>
-                <p>Чиний инээмсэглэл миний өдрийг гэрэлтүүлж, хоолойг чинь сонсоход л зүрх минь тайвшран дулаацдаг. Надад хэцүү үед түшиг тулгуур болж, жаргалтай мөчид минь давхар баяр хөөрийг нэмдэгт чинь хязгааргүй их баярлалаа.</p>
-                <p>Цаг хугацаа хэрхэн урсан өнгөрөх нь хамаагүй, зөвхөн чи бид хоёр хамт байхад л хангалттай. Удахгүй хоёулаа уулзах бас нэгэн гоё өдөр ойрхон байгаа шүү.</p>
+                <p>Энэ кодыг зугтаж байж арай гэж уншууллаа шүү дээ. Чиний гараас хөтлөөд энэ хорвоог туулах нь миний хамгийн том аз жаргал юм.</p>
+                <p>Чиний инээмсэглэл миний өдрийг гэрэлтүүлж, хоолойг чинь сонсоход л зүрх минь тайвшран дулаацдаг. Надад түшиг тулгуур болж, жаргалтай мөчид минь утга учир нэмдэгт чинь хязгааргүй их баярлалаа.</p>
                 <p><b>Дэлхий дээрх бүх зүйлсээс илүүтэйгээр чамдаа хайртай шүү!</b></p>
             </div>
-            <button class="action-btn" onclick="playMusic()">Дууг дахин тоглуулах 🎶</button>
+            <button class="action-btn" onclick="playMusic()">Аялгууг дахин тоглуулах 🎶</button>
         </div>
     </div>
 
-    <!-- Романтик ая (Web Audio API ашиглан код дотор шууд тоглогдох дуу авиа үүсгэсэн тул гадны линк шаардлагагүй шууд ажиллана) -->
     <script>
         function moveNo(e) {
             e.preventDefault();
@@ -149,14 +148,13 @@
             playMusic();
         }
 
-        // Гадны mp3 файл татах шаардлагагүйгээр хөгжим тоглуулах романтик аялгуу үүсгэгч
         function playMusic() {
             try {
                 const AudioContext = window.AudioContext || window.webkitAudioContext;
                 const ctx = new AudioContext();
 
-                const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63]; // C E G C5 G E
-                let delay = 0;
+                // "Бөгж" дууны аялгууны хэмнэлд дөхүүлсэн ноотууд
+                const notes = [329.63, 392.00, 440.00, 523.25, 440.00, 392.00, 329.63]; 
 
                 notes.forEach((freq, index) => {
                     setTimeout(() => {
@@ -166,21 +164,21 @@
                         const osc = ctx.createOscillator();
                         const gain = ctx.createGain();
 
-                        osc.type = 'sine';
+                        osc.type = 'triangle';
                         osc.frequency.value = freq;
 
-                        gain.gain.setValueAtTime(0.15, ctx.currentTime);
-                        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8);
+                        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.6);
 
                         osc.connect(gain);
                         gain.connect(ctx.destination);
 
                         osc.start();
-                        osc.stop(ctx.currentTime + 0.8);
-                    }, index * 300);
+                        osc.stop(ctx.currentTime + 0.6);
+                    }, index * 280);
                 });
             } catch (err) {
-                console.log("Audio not supported or blocked");
+                console.log("Audio not supported");
             }
         }
     </script>
