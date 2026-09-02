@@ -27,6 +27,7 @@
             width: 90%;
             max-width: 380px;
             position: relative;
+            z-index: 10;
         }
         h2 {
             color: #d63384;
@@ -108,6 +109,26 @@
             color: #c9184a;
             margin-bottom: 12px;
         }
+
+        /* Нисэж буй зүрхний эффект */
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: flyUp 3s linear infinite;
+            z-index: 1;
+            user-select: none;
+        }
+        @keyframes flyUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.5);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -158,6 +179,20 @@
         function sayYes() {
             document.getElementById('questionSection').classList.add('hidden');
             document.getElementById('letterSection').classList.remove('hidden');
+            
+            // Дэлгэц дээгүүр зүрхнүүд нисгэх функц
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            }, 300);
         }
     </script>
 </body>
